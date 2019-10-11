@@ -1,0 +1,32 @@
+.shopping-container {
+    margin: 0% 5%;
+}
+
+.shopping-summary-card {
+    box-shadow: none;
+}
+
+.controles-container {
+    width: 100%;
+}
+
+.padding{
+    padding: 0% 10%;
+}
+
+.controles-container > * {
+    width: 100%;
+}
+
+.add-bottom-padding {
+    padding-bottom: 10px;
+}
+
+.mat-grid-tile > ::ng-deep figure {
+    align-items: flex-start !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+   

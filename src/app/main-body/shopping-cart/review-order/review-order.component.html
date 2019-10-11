@@ -1,0 +1,46 @@
+<mat-card class="shopping-list-card">
+  <mat-toolbar>
+    <span>you have {{ shoppingCart?.totalItemsCount }} items in your cart</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close"
+      *ngIf="shoppingCart?.items.length > 0"
+      (click)="clearCart()"
+      mat-stroked-button 
+      tabIndex="-1">
+      <mat-icon>clear</mat-icon> 
+      clear shopping cart
+    </button>
+  </mat-toolbar>
+  <mat-card-content *ngIf="shoppingCart?.items.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th style="text-align: left;">Product</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cart of shoppingCart?.items">
+          <td>
+            <div style="margin: 0 auto;" [ngStyle]="{'background-image':'url(' + cart.imageUrl + ')'}"class="thumbnail"></div>
+          </td>
+          <td>
+            <h4 class="grey" style="margin: 0px;">{{ cart.displayName }} ( {{ cart.color }} )</h4>
+            <p class="grey" style="margin: 0px;">{{ cart.brand }}</p>
+            <p class="grey" style="margin: 0px;">{{ cart.category }}</p>
+          </td>
+          <td class="grey" style="text-align: center;">{{ cart.subTotalOfItem | currency:'INR':'symbol' }}</td>
+          <td style="text-align: center;">
+            <app-product-quantity [product]="cart" [shopping-cart]="shoppingCart"></app-product-quantity>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="panel-footer">
+      <button mat-raised-button class="grey-bg" matStepperPrevious></button>
+      <button mat-raised-button color="primary" matStepperNext>proceed <mat-icon>navigate_next</mat-icon> </button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,21 @@
+.mat-grid-list, .mat-grid-tile, .mat-card {
+    background: #39454e;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.mat-list-item {
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.mat-card {
+    box-shadow: none;
+    padding: 0%;
+    color: white;
+}
+
+.mat-card-title {
+    font-size: 26px;
+    font-weight: 900;
+}

@@ -1,0 +1,80 @@
+<mat-card class="shopping-list-card">
+  <mat-toolbar>
+    <span>delivery address</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+  <mat-card-content>
+    <div class="checkout-panel">
+      <form #f="ngForm" class="delivery-form">
+        <div class="panel-body">
+          <table class="delivery-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="delivery-full-width">
+                  <input #fname="ngModel" 
+                    name="fname" 
+                    [(ngModel)]="shipping.fname"
+                    matInput placeholder="First Name">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="delivery-full-width">
+                  <input matInput placeholder="Last Name">
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <p>
+            <mat-form-field class="delivery-full-width">
+              <input #mobile="ngModel" 
+                name="mobile" 
+                [(ngModel)]="shipping.mobile"
+                matInput maxlength="10" placeholder="Mobile Number (e.g. 8840002768)">
+              <mat-hint>*OTP will be sent on this number, please make sure your device is on. Do not use country code or 0. </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="delivery-full-width">
+              <textarea #addressLine1="ngModel" 
+                name="addressLine1" 
+                [(ngModel)]="shipping.addressLine1" 
+                matInput placeholder="Address Line 1"></textarea>
+            </mat-form-field>
+            <mat-form-field class="delivery-full-width">
+              <textarea #addressLine2="ngModel" 
+                name="addressLine2" 
+                [(ngModel)]="shipping.addressLine2" 
+                matInput placeholder="Address Line 2"></textarea>
+            </mat-form-field>
+          </p>
+          <table class="delivery-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="delivery-full-width">
+                  <input #city="ngModel" 
+                    name="city" 
+                    [(ngModel)]="shipping.city" 
+                    matInput placeholder="City">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="delivery-full-width">
+                  <input matInput placeholder="State">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="delivery-full-width">
+                  <input matInput #postalCode maxlength="6" placeholder="Postal Code">
+                  <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <button mat-raised-button class="grey-bg" matStepperPrevious>edit order</button>
+          <button mat-raised-button color="primary" matStepperNext class="margin-left" [disabled]="!f.valid"
+          (click)="placeOrder()">save & proceed  <mat-icon>navigate_next</mat-icon></button>
+        </div>
+      </form> 
+    </div> 
+  </mat-card-content>
+</mat-card>

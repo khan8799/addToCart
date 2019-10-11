@@ -1,0 +1,61 @@
+<mat-card class="shopping-list-card">
+  <mat-toolbar>
+    <span>delivery address</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+  <mat-card-content>
+    <div class="checkout-panel">
+      <div class="panel-body">
+        <div class="payment-method">
+          <label for="card" class="method card">
+            <div class="card-logos">
+              <img src="https://designmodo.com/demo/checkout-panel/img/visa_logo.png"/>
+              <img src="https://designmodo.com/demo/checkout-panel/img/mastercard_logo.png"/>
+            </div>
+
+            <div class="radio-input">
+                <mat-radio-button name="payment" color="primary">Pay AU$20.99 with credit card</mat-radio-button>
+            </div>
+          </label>
+
+          <label for="paypal" class="method paypal">
+            <!-- <img src="https://designmodo.com/demo/checkout-panel/img/paypal_logo.png"/>
+            <div class="radio-input">
+                <mat-radio-button name="payment" color="primary">Pay AU$20.99 with PayPal</mat-radio-button>
+            </div> -->
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+          </label>
+        </div>
+
+        <table class="delivery-full-width">
+          <tr>
+            <td><mat-form-field class="delivery-full-width">
+              <input matInput placeholder="card holder name*">
+            </mat-form-field></td>
+            <td><mat-form-field class="delivery-full-width">
+              <input matInput placeholder="card number*">
+            </mat-form-field></td>
+          </tr>
+          <tr>
+            <td><mat-form-field class="delivery-full-width">
+              <input matInput [matDatepicker]="picker" placeholder="valid date*">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field></td>
+            <td><mat-form-field class="delivery-full-width">
+              <input matInput placeholder="CVV/VCC*">
+              <mat-hint align="end">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</mat-hint>
+            </mat-form-field></td>
+            <!-- <td><span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span></td> -->
+          </tr>
+        </table>
+      </div>
+
+      <div class="panel-footer">
+        <button mat-raised-button color="default" class="grey-bg" matStepperPrevious>edit delivery address</button>
+        <button mat-raised-button color="primary" class="margin-left">PAY NOW</button>
+        <!-- <button mat-raised-button color="primary" (click)="stepper.reset()" class="margin-left">PAY NOW</button> -->
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

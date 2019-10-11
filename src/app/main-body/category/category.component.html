@@ -1,0 +1,101 @@
+<h3>filter by...</h3>
+
+<div class="grid-container">
+  <div class="grid-item">
+    <mat-card class="price">
+      <mat-card-header>
+        <mat-card-title class="grey">Price Range</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-slider
+              color="primary"
+              invert="false"
+              vertical="false"
+              step="500"
+              [max]="max"
+              [min]="min"
+              thumbLabel="true"
+              [(ngModel)]="value">
+          </mat-slider>
+        <section class="example-price">
+          <mat-form-field  class="example-margin-price">
+            <mat-select placeholder="min" [(value)]="min">
+              <mat-option value="1">1</mat-option>
+              <mat-option value="500">500</mat-option>
+              <mat-option value="1000">1000</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field  class="example-margin-price">
+            <mat-select placeholder="max" [(value)]="max">
+              <mat-option>None</mat-option>
+              <mat-option value="1000">1000</mat-option>
+              <mat-option value="1500">1500</mat-option>
+              <mat-option value="2000">2000</mat-option>
+              <mat-option value="2500">2500</mat-option>
+              <mat-option value="3000">3000</mat-option>
+              <mat-option value="5000">2000</mat-option>
+              <mat-option value="4000">4000</mat-option>
+              <mat-option value="4500">4500</mat-option>
+              <mat-option value="5000">2000</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="grid-item">
+    <mat-card class="price">
+      <mat-card-header>
+        <mat-card-title class="grey">Brand</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-radio-group class="brand-radio-group" [(ngModel)]="favoriteBrand">
+          <mat-radio-button *ngFor="let brand of brands | async" 
+            name="brand"
+            color="primary"
+            class="brand-radio-button" 
+            [value]="brand.key" 
+            routerLink="/home"
+            [queryParams]="{ brand: brand.key }"
+            queryParamsHandling= 'merge'>
+            {{ brand.name }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="grid-item">
+    <mat-card class="price">
+      <mat-card-header>
+        <mat-card-title class="grey">Color</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-radio-group class="color-radio-group" [(ngModel)]="favoriteColor">
+          <mat-radio-button *ngFor="let color of colors | async" 
+            name="color"
+            color="primary"
+            class="color-radio-button" 
+            [value]="color.key" 
+            routerLink="/home"
+            [queryParams]="{ color: color.key }"
+            queryParamsHandling= 'merge'>
+              {{ color.name }}
+          </mat-radio-button>
+        </mat-radio-group>
+          <!-- <mat-selection-list #color>
+              <mat-list-option *ngFor="let color of colors | async" 
+                [value]="color.key" 
+                routerLink="/home"
+                [queryParams]="{ color: color.key }"
+                queryParamsHandling= 'merge'>
+                  {{ color.name }}
+              </mat-list-option>
+            </mat-selection-list> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

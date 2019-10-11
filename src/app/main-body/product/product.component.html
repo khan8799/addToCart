@@ -1,0 +1,25 @@
+
+<mat-card>
+  <mat-card-content>
+    <div class="imgContainer">
+      <img mat-card-image class="img" [src]="product.imageUrl">
+      <figcaption>
+        <div class="flex-image">
+          <div style="flex-grow: 1">
+            <h3>{{ product.displayName }}</h3>
+            <p>${{ product.price }}</p>
+          </div>
+          <div style="flex-grow: 1">
+            <h3>
+              <button mat-icon-button>
+                <mat-icon (click)="addToCart(product)" color="yellow" aria-label="cart button">add_shopping_cart</mat-icon>
+              </button>
+            </h3> 
+          </div> 
+        </div>
+      </figcaption>
+    </div>
+  </mat-card-content>
+</mat-card>
+  
+ 

@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { 
+    height: 100%; 
+}
+
+body { 
+    margin: 0;
+    padding: 0.5em; 
+    /* font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";  */
+}
+body, 
+.mat-card, 
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6, 
+.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button,
+.mat-stepper-horizontal, .mat-stepper-vertical,
+.mat-form-field, .mat-input-element, .mat-form-field-label,
+.mat-list-option,
+.mat-radio-button {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+a {
+    text-decoration: none;
+    color:  rgba(0, 0, 0, 0.38);
+}
+
+.primary {
+    color: #ec4678;
+}
+
+.primary-bg {
+    background: #ec4678;
+    color:white;
+}
+
+.ascent {
+    color: #2196f3;
+}
+
+.accent-bg {
+    background: #2196f3;
+    color:white;
+}
+
+.grey {
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.grey-bg {
+    background: rgba(0, 0, 0, 0.38);
+    color:white;
+}
+
+.white {
+    color: white;
+}
+
+.white-bg {
+    background: white;
+    color:rgba(0, 0, 0, 0.38);
+}
+
+.yellow {
+    color: #ffac15d1;
+}
+
+.yellow-bg {
+    background: #ffac15d1;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.purple {
+    color: #882287;
+}
+
+.purple-bg {
+    background: #882287;
+    color: rgba(0, 0, 0, 0.38);
+}
+.mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+    background: #ec4678;
+}
+
+button {
+    border-radius: 0px !important;
+    transition: all .2s ease-in-out !important;
+}
+button:hover {
+    transform: scale(1.1);
+}
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+.mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}

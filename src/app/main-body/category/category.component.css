@@ -1,0 +1,51 @@
+.grid-item {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.example-price {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.example-margin-price {
+    margin: 3%;
+}
+
+.mat-slider-horizontal {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 44%;
+}
+
+.brand-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+  
+.brand-radio-button {
+    margin: 5px;
+}
+  
+.brand-selected-value {
+    margin: 15px 0;
+}
+
+.color-radio-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.color-radio-button {
+    margin: 5px;
+}
+  
+.color-selected-value {
+    margin: 15px 0;
+}
+  

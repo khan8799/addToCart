@@ -1,0 +1,44 @@
+.mat-card {
+    box-shadow: none;
+}
+
+form.product-form {
+    margin: 0px 20px;
+}
+
+.product-container {
+    width: 100%;
+    padding: 5%;
+}
+
+.product-container > * {
+    width: 100%;
+}
+
+.product-container h2 {
+    color: rgba(0, 0, 0, 0.38);
+} 
+.mat-raised-button {
+    border-radius: 0px !important;
+}
+
+.example-button-row button, .example-button-row a {
+    margin-right: 8px;
+}
+
+.example-margin {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.thumbnail {
+    width: 450px;
+    height: 450px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mat-grid-tile .mat-figure {
+    align-items: flex-start !important;
+}

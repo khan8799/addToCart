@@ -1,0 +1,53 @@
+<div class="top-div">
+  <span class="email">
+    <mat-icon>mail</mat-icon> info@addToCart.com
+  </span>
+  <span class="phone">
+    <mat-icon>phone_iphone</mat-icon> +91-8840002768
+  </span>
+</div>
+
+<mat-grid-list cols="10" rowHeight="60px" gutterSize="0px">
+  <mat-grid-tile colspan="2">
+    <div class="left">
+      <a routerLink="/home">add<span>ToCart</span></a>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite item...">
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <div class="left">
+      <button mat-raised-button color="primary"><mat-icon matSuffix>search</mat-icon> search</button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <mat-icon [matBadge]="shoppingCartItemCount" matTooltip="items in your shopping bag" matBadgeColor="accent" matBadgePosition="below before" matSuffix class="yellow">local_grocery_store</mat-icon> 
+    <a matTooltip="view cart" class="" routerLink="/shopping-cart">my cart</a>
+  </mat-grid-tile>
+  
+  <mat-grid-tile *ngIf="appUser else anonymousUser" colspan="1" class="underline-none">
+    <mat-form-field>
+      <mat-select [placeholder]="(appUser.name || appUser.displayName)">
+        <ng-container *ngIf="appUser.isAdmin">
+          <mat-option routerLink="/admin/product-list">manage products</mat-option>
+          <mat-option routerLink="/admin/add-product">add product</mat-option>
+          <mat-option routerLink="/manage-order">manage orders</mat-option>
+        </ng-container> 
+        <mat-option routerLink="/manage-order">my orders</mat-option>
+        <mat-option (click)="logout()">logout</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+  <ng-template #anonymousUser>
+    <mat-grid-tile colspan="1">
+      <mat-icon matSuffix class="yellow">account_circle</mat-icon> 
+      <a class="" routerLink="/login">login/signup</a>
+    </mat-grid-tile>
+  </ng-template>
+  
+</mat-grid-list>

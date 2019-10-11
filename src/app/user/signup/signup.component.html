@@ -1,0 +1,50 @@
+<mat-toolbar>
+  <span>create an account</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="userService.signUpForm" class="normal-form" (ngSubmit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input matInput formControlName="displayName" placeholder="Full Name*">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="email" placeholder="Email">
+          <mat-error>Invalid email address.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="number" matInput formControlName="phone" placeholder="Mobile*">
+          <mat-error>This field is mandatory.</mat-error>
+          <!-- <mat-error>Minimum 10 charactors needed.</mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput formControlName="password" placeholder="Password*">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Other">Other</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field>
+          <input matInput formControlName="city" placeholder="City">
+        </mat-form-field>
+        
+        <div class="add-bottom-padding">
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

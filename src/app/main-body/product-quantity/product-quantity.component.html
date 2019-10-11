@@ -1,0 +1,26 @@
+<!-- <div class="row no-gutters">
+  <div class="col-2">
+    <button 
+    (click)="removeFromCart()"
+    class="btn btn-secondary btn-block">-</button>
+  </div>
+  <div class="col text-center quantity">
+    {{ shoppingCart.getQuantity(product) }} in cart
+  </div>
+  <div class="col-2">
+    <button 
+    (click)="addToCart()"
+    class="btn btn-secondary btn-block">+</button>
+  </div>
+</div> -->
+<mat-grid-list cols="3" rowHeight="50px">
+  <mat-grid-tile colspan="1">
+    <mat-icon matTooltip="remove 1" color="warn" (click)="removeFromCart()">remove_circle</mat-icon>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    {{ shoppingCart.getQuantity(product) }} in cart
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <mat-icon matTooltip="add 1" color="accent" (click)="addToCart()">add_circle</mat-icon>
+  </mat-grid-tile>
+</mat-grid-list>

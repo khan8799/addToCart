@@ -1,0 +1,80 @@
+
+<mat-grid-list class="shopping-container" cols="3" rowHeight="800px">
+
+<!-- First Column. -->
+<mat-grid-tile colspan="2" class="shopping-cart-list-container">
+<div class="controles-container">
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+
+  <!-- Order Review. -->
+  <mat-step label="Review Order" state="review">
+    <app-review-order [shopping-cart]="carts"></app-review-order>
+  </mat-step>
+  <!-- Order Review Ends. -->
+
+
+  <!-- Delivery Address. -->
+  <mat-step label="Delivery Address" state="address">
+    <app-shipping-form [shopping-cart]="carts"></app-shipping-form>
+  </mat-step> 
+  <!-- Delivery Address Ends.-->
+
+  <!-- Payment Type. -->
+  <mat-step label="Make Payment" state="payment">
+    <app-checkout></app-checkout>
+  </mat-step>
+  <!-- Payment Type Ends. -->
+
+  <!-- Icon overrides. -->
+  <ng-template matStepperIcon="review">
+    <mat-icon>rate_review</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="address">
+    <mat-icon>location_on</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="payment" optional="false">
+    <mat-icon>payment</mat-icon>
+  </ng-template>
+  <!-- Icon overrides Ends. -->
+
+</mat-horizontal-stepper>
+</div>
+</mat-grid-tile>
+<!-- First Column Ends. -->
+
+
+<!-- Second Column. -->
+<mat-grid-tile colspan="1" class="shopping-summary-container">
+  <div class="controles-container padding">
+    <mat-card class="shopping-summary-card">
+      <mat-toolbar>
+          <span>Order Summary</span>
+          <span class="fill-remaining-space"></span>
+        </mat-toolbar>
+      <mat-card-content>
+        <table class="delivery-full-width">
+          <tr>
+            <td>order subtotal</td>
+            <td>$350.00</td>
+          </tr>
+          <tr>
+            <td>tax(incl.)</td>
+            <td>$5.00</td>
+          </tr>
+          <tfoot>
+            <tr>
+              <th>
+                <mat-chip-list>
+                  <mat-chip color="primary" selected>Grand Total $500</mat-chip>
+                </mat-chip-list>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </mat-card-content>
+    </mat-card>       
+  </div>
+</mat-grid-tile>
+<!-- Second Column Ends. -->
+
+</mat-grid-list>

@@ -1,0 +1,12 @@
+<div class="grid">
+    <div class="grid-item">
+        <app-category></app-category>
+    </div>
+    <div class="grid-item">
+        <div class="flex">
+            <div *ngFor="let p of filteredProducts; let i = index" class="flex-item">
+                <app-product [product]="p"></app-product>
+            </div>
+        </div> 
+    </div> 
+</div>

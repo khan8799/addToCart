@@ -1,0 +1,91 @@
+<form [formGroup]="productService.form" class="product-form" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="3" rowHeight="600px">
+        <mat-grid-tile colspan="2">
+            <div class="product-container">
+                <h2>Add a product with image...</h2>
+
+                <input type="hidden" formControlName="$key">
+                <mat-form-field>
+                  <input matInput formControlName="name" placeholder="Product Name*">
+                  <mat-error>Please enter product name</mat-error>
+                </mat-form-field>
+              
+                <mat-form-field>
+                  <input matInput formControlName="displayName" placeholder="Display Name*">
+                  <mat-error>Please enter display name</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <mat-select formControlName="color" placeholder="Choose Color...">
+                        <mat-option *ngFor="let color of colors | async" [value]="color.key">
+                            {{ color.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>Please select color of a product</mat-error>
+                </mat-form-field>
+                    
+                <mat-form-field>
+                    <input type="number" matInput formControlName="price" placeholder="Price">
+                    <mat-icon matSuffix>attach_money</mat-icon>
+                    <mat-error>Please enter price of a product</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select formControlName="category" placeholder="Choose Product Type...">
+                      <mat-option *ngFor="let category of categories | async" [value]="category.key">
+                            {{ category.name }}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error>Please select category of a product</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select formControlName="brand" placeholder="Choose Brand...">
+                        <mat-option *ngFor="let brand of brands | async" [value]="brand.key">
+                            {{ brand.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>Please select brand of a product</mat-error>
+                </mat-form-field>
+                
+                <div class="example-button-row">
+                    <button type="submit" [disabled]="productService.form.invalid" mat-raised-button color="accent">Add</button>
+                    <button (click)="onClear()" [disabled]="productService.form.invalid" mat-raised-button color="warn">Clear</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <mat-card>                
+                <mat-card-content>
+                    <div>
+                        <ng-container *ngIf="downloadURL | async; else elseTemplate">
+                            <div style="margin: 0 auto;" [ngStyle]="{'background-image':'url(' + (downloadURL | async) + ')'}"class="thumbnail"></div>
+                            <input type="hidden" formControlName="imageUrl" [value]="(downloadURL | async)">
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                        </ng-template>
+                    </div>
+                    <div>
+                        <mat-progress-bar
+                            class="example-margin"
+                            color="primary"
+                            mode="determinate"
+                            [value]="(uploadProgress | async)"
+                            [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                        <div>{{ uploadProgress | async }}</div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <input hidden type="file" #fileInput (change)="uploadFile($event)">
+                    <button mat-raised-button
+                        type="button" 
+                        color="primary" 
+                        (click)="fileInput.click()">
+                        upload image
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
